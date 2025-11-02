@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện Công Nghệ 6G - Tương Lai Kết Nối</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.2) 0%, transparent 50%);
+            z-index: -1;
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3em;
+            font-weight: 900;
+            margin: 0;
+            text-shadow: 0 0 20px #00ffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
+            to { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; }
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        
+        .tech-card:hover::before {
+            animation: shine 0.5s ease;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+        }
+        
+        .tech-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .tech-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .tech-card p {
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+        
+        .hologram-section {
+            text-align: center;
+            margin: 100px 0;
+            position: relative;
+        }
+        
+        .hologram {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            border: 2px solid #00ffff;
+            position: relative;
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hologram::after {
+            content: 'Holographic Comm';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+        
+        .ai-interface {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            position: relative;
+        }
+        
+        .ai-interface h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .control-panel {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .control-btn {
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: #000;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .control-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.6;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+            margin-top: 50px;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1>6G NETWORK INTERFACE</h1>
+            <p class="subtitle">Tương Lai Kết Nối - Holographic, AI-Driven, Immersive Experiences</p>
+        </header>
+        
+        <section class="tech-grid">
+            <div class="tech-card">
+                <span class="tech-icon">🌐</span>
+                <h3>Terahertz Communication</h3>
+                <p>Tốc độ dữ liệu lên đến 1 Tbps, hỗ trợ holographic messaging và real-time XR với độ trễ dưới 1ms.</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">🤖</span>
+                <h3>AI/ML Integration</h3>
+                <p>Trí tuệ nhân tạo tối ưu hóa mạng, dự đoán nhu cầu người dùng, và tự động hóa air interface cho trải nghiệm cá nhân hóa.</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">👁️</span>
+                <h3>Integrated Sensing</h3>
+                <p>Kết hợp giao tiếp và cảm biến, cho phép môi trường thông minh nhận biết ngữ cảnh, hỗ trợ digital twins và tactile internet.</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">🧠</span>
+                <h3>Brain-Computer Interface</h3>
+                <p>Kết nối trực tiếp não-máy, cho phép điều khiển bằng suy nghĩ trong metaverse và augmented cognition.</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">📡</span>
+                <h3>Reconfigurable Surfaces</h3>
+                <p>Bề mặt thông minh điều chỉnh tín hiệu, mở rộng phủ sóng và hiệu quả năng lượng cho IoE (Internet of Everything).</p>
+            </div>
+            
+            <div class="tech-card">
+                <span class="tech-icon">🔮</span>
+                <h3>Quantum Computing</h3>
+                <p>Tích hợp lượng tử cho bảo mật không thể phá vỡ và xử lý dữ liệu phức tạp trong mạng 6G.</p>
+            </div>
+        </section>
+        
+        <section class="hologram-section">
+            <div class="hologram"></div>
+            <h2>Holographic Communication Demo</h2>
+            <p>Trải nghiệm giao tiếp 3D sống động, nơi thế giới vật lý và ảo hòa quyện.</p>
+        </section>
+        
+        <section class="ai-interface">
+            <h2>AI Control Panel - Quản Lý Mạng 6G</h2>
+            <div class="control-panel">
+                <button class="control-btn" onclick="simulateXR()">Kích Hoạt XR Mode</button>
+                <button class="control-btn" onclick="simulateHaptic()">Bật Haptic Feedback</button>
+                <button class="control-btn" onclick="simulateAI()">Tối Ưu AI Network</button>
+                <button class="control-btn" onclick="simulateQuantum()">Quantum Secure</button>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 6G Vision - Powered by Future Tech</p>
+    </footer>
+    
+    <script>
+        // Tạo particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+        
+        // Simulate functions
+        function simulateXR() {
+            alert('XR Mode Activated: Chào mừng đến với thế giới mở rộng thực tế!');
+        }
+        
+        function simulateHaptic() {
+            alert('Haptic Feedback Enabled: Cảm nhận xúc giác từ xa!');
+        }
+        
+        function simulateAI() {
+            alert('AI Optimization: Mạng được tối ưu hóa cho trải nghiệm cá nhân!');
+        }
+        
+        function simulateQuantum() {
+            alert('Quantum Security Engaged: Bảo mật lượng tử không thể xâm phạm!');
+        }
+    </script>
+</body>
+</html>
